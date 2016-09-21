@@ -1,12 +1,14 @@
 # setting mouse usage 
-setw -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-set -g mouse-select-window on
+# setw -g mode-mouse on
+# set -g mouse-select-pane on
+# set -g mouse-resize-pane on
+# set -g mouse-select-window on
 set -g default-terminal "xterm"
 bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
 bind c new-window -c "#{pane_current_path}"
+# bind -t vi-copy y copy-pipe 'xclip -in -selection clipboard'
+bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 
 # clipboard settings
 # set-option -g default-command "reattach-to-user-namespace -l bash"
@@ -21,19 +23,13 @@ set -g default-terminal "screen-256color"
 # want the status position to be on top
 set-option -g status-position top
 
-# set the prefix to 
-# set prefix C-q
-# unbind-key C-b
-# bind-key C-q send-prefix
-
-
 # # set window list colors
 # set-window-option -g window-status-current-bg colour202
 # set-window-option -g window-status-current-fg colour208
 # # set tmux status line
-# set -g status-bg colour172
-# set -g status-fg colour221
-#set-window-option -g window-status-current-attr bright
+set -g status-bg colour172
+set -g status-fg colour221
+set-window-option -g window-status-current-attr bright
 
 # Smart pane switching with awareness of vim splits
 is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
@@ -58,8 +54,14 @@ unbind [
 bind Escape copy-mode
 unbind p 
 bind p paste-buffer 
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
+# bind-key -t vi-copy 'v' begin-selection
+# bind-key -t vi-copy 'y' copy-selection
+# copy and paste functionality
+# move x clipboard into tmux paste buffer
+# bind C-p run "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
+# # move tmux copy buffer into x clipboard
+# bind C-y run "tmux save-buffer - | xclip -i"
+# bind y run-shell "tmux show-buffer | xclip -sel clip -i" \;
 
 # save tmux session plugin
 run-shell ~/Software/tmux-resurrect/resurrect.tmux
@@ -67,3 +69,8 @@ run-shell ~/Software/tmux-resurrect/resurrect.tmux
 ## keyboard shortcut 
 # C-b C-s save session 
 # C-b C-r restore session
+
+# Plugin Manager 
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+
