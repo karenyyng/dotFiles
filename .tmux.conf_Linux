@@ -8,7 +8,6 @@ bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
 bind c new-window -c "#{pane_current_path}"
 # bind -t vi-copy y copy-pipe 'xclip -in -selection clipboard'
-bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 
 # clipboard settings
 # set-option -g default-command "reattach-to-user-namespace -l bash"
@@ -28,7 +27,7 @@ set-option -g status-position top
 # set-window-option -g window-status-current-fg colour208
 # # set tmux status line
 set -g status-bg colour172
-set -g status-fg colour221
+set -g status-fg colour250
 set-window-option -g window-status-current-attr bright
 
 # Smart pane switching with awareness of vim splits
@@ -54,8 +53,9 @@ unbind [
 bind Escape copy-mode
 unbind p 
 bind p paste-buffer 
-# bind-key -t vi-copy 'v' begin-selection
-# bind-key -t vi-copy 'y' copy-selection
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-pipe "xclip -set clip -i"
+bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 # copy and paste functionality
 # move x clipboard into tmux paste buffer
 # bind C-p run "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
