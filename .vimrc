@@ -46,12 +46,12 @@ Plugin 'AutoComplPop'                                  " autocomplete menu"
 Plugin 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
 Plugin 'https://github.com/scrooloose/syntastic.git'   " syntax check
 Plugin 'git://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
+Plugin 'jpalardy/vim-slime'                            " send code to IPython
 
 
 "-------language specific plugins ------------------------------
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'klen/python-mode'
-Plugin 'KangOI/vim-pudb'
 "Plugin 'pythoncomplete'
 
 Plugin 'c.vim'
@@ -102,7 +102,7 @@ set laststatus=2 showcmd showmode
 set incsearch ignorecase smartcase hlsearch 
 set nonumber
 set nocompatible 
-set clipboard=unnamed
+set clipboard=unnamedplus
 set wrap
 set textwidth=79
 set wrapmargin=0
@@ -384,7 +384,7 @@ let g:pymode_motion = 0
 let g:pymode_rope_complete_on_dot=0
 let g:pymode_rope_completion=0 "0
 let g:pymode_rope_completion_bind='<C-Space>'
-let g:pymode_rope_autoimport=0
+let g:pymode_rope_autoimport=1
 let g:pymode_doc=1
 let g:pymode_indent=1
 let g:pymode_rope_show_doc_bind = 'K'
@@ -412,9 +412,9 @@ let g:cpp_experimental_template_highlight = 1
 " let g:vimrplugin_insert_mode_cmds = 0 
 
 """ ---jsbeautify-----------
-map <c-j> :call JsBeautify()<cr>
+map <c-f> :call JsBeautify()<cr>
 " or
-autocmd FileType javascript noremap <buffer>  <c-j> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for json
 autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 " for jsx
@@ -429,3 +429,8 @@ au BufRead,BufNewFile *.scala set filetype=scala
 au BufNewFile,BufRead *.scala set tabstop=2
 
 let g:EclimCompletionMethod = 'completefunc'
+
+""" ------- slime config -----------------------------------------------
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste"
+
