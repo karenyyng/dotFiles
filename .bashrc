@@ -185,7 +185,7 @@ color_orbd=`color orange bold`
 color_rdbd=`color red bold`
 PS1="\[${color_rdbd}\]${USER}\[${color_reset}\]:\[\033[38;5;32m\]\W\
 \[\033[m\033[38;5;208m\]$ \[\033[m\]"
-PROMPT_COMMAND='echo -ne "\033]0;ubuntu:/${PWD##*/}\007"'
+PROMPT_COMMAND='echo -ne "\033]0;${USER}:/${PWD##*/}\007"'
 
 # alias
 alias pbcopy='xclip -selection clipboard'
