@@ -183,20 +183,20 @@ color_grbd=`color green bold`
 color_bubd=`color blue bold`
 color_orbd=`color orange bold`
 color_rdbd=`color red bold`
-PS1="\[${color_rdbd}\]ThinkCentre\[${color_reset}\]:\[\033[38;5;32m\]\W\
+PS1="\[${color_rdbd}\]${USER}\[${color_reset}\]:\[\033[38;5;32m\]\W\
 \[\033[m\033[38;5;208m\]$ \[\033[m\]"
 PROMPT_COMMAND='echo -ne "\033]0;ubuntu:/${PWD##*/}\007"'
 
 # alias
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
-alias ipynb='jupyter notebook'
+# alias ipynb='jupyter notebook'
 
 # source 
-source /usr/local/bin/activate.sh
+# source /usr/local/bin/activate.sh
 
 # PATHS
-export R_LIBS="~/Software/R"
+# export R_LIBS="~/Software/R"
 
 # configure PATH
-PATH=$PATH:/usr/local/MATLAB/R2015b/bin
+# PATH=$PATH:/usr/local/MATLAB/R2015b/bin

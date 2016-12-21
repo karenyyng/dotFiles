@@ -45,7 +45,7 @@ Plugin 'honza/vim-snippets'			       " where code snippets are
 Plugin 'AutoComplPop'                                  " autocomplete menu"
 Plugin 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
 Plugin 'https://github.com/scrooloose/syntastic.git'   " syntax check
-Plugin 'git://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
+Plugin 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
 Plugin 'jpalardy/vim-slime'                            " send code to IPython
 
 
@@ -61,7 +61,7 @@ Plugin 'c.vim'
 " Plugin 'JuliaLang/julia-vim'
 Plugin 'ekalinin/Dockerfile.vim'
 
-" Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
+" Plugin 'http://git.code.sf.net/p/vim-latex/vim-latex'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'https://github.com/Shutnik/jshint2.vim.git'
