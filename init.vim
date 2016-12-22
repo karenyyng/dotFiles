@@ -75,7 +75,7 @@ Plug 'suan/vim-instant-markdown'
 Plug 'derekwyatt/vim-scala'
 Plug 'spiroid/vim-ultisnip-scala'
 
-call vundle#end()
+call plug#end()
 
 " Git repos on your local machine (i.e. when working on your own plugin)
 filetype plugin indent on     " required!
