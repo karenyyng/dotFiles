@@ -43,7 +43,7 @@ Plugin 'LanguageTool'
 Plugin 'SirVer/ultisnips'  			       " quickly add code template
 Plugin 'honza/vim-snippets'			       " where code snippets are
 Plugin 'AutoComplPop'                                  " autocomplete menu"
-Plugin 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
+" Plugin 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
 Plugin 'https://github.com/scrooloose/syntastic.git'   " syntax check
 Plugin 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
 Plugin 'jpalardy/vim-slime'                            " send code to IPython
