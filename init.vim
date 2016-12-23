@@ -1,4 +1,4 @@
-" Vim setup for Mac OSX 10.10.5 Yosemite
+" Setup for general Linux distributions 
 " Author: Karen Ng <karen.yyng@gmail.com>
 "
 """-----Vundle config-------------------------------------------
@@ -7,11 +7,8 @@ set nocompatible              " be iMproved
 filetype off                  " required!
 filetype plugin indent on
 
+" Use Vim Plug to manage plugins
 call plug#begin('~/.config/nvim/plug')
-
-" ----------let Vundle manage Vundle ---------------------------
-" " required! 
-Plug 'gmarik/vundle'
 
 "---------- My bundles (plugins) here:--------------------------
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  " improves startup time
@@ -42,19 +39,19 @@ Plug 'LanguageTool'
 Plug 'SirVer/ultisnips'  			       " quickly add code template
 Plug 'honza/vim-snippets'			       " where code snippets are
 Plug 'AutoComplPop'                                  " autocomplete menu"
-" Plug 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
+Plug 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
 Plug 'https://github.com/scrooloose/syntastic.git'   " syntax check
 Plug 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
 Plug 'jpalardy/vim-slime'                            " send code to IPython
 
 
 "-------language specific plugins ------------------------------
-Plug 'maksimr/vim-jsbeautify'
+"Plug 'maksimr/vim-jsbeautify'
 Plug 'klen/python-mode'
 "Plug 'pythoncomplete'
 
 Plug 'c.vim'
-"Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'jalvesaq/R-Vim-runtime'
 " Plug 'Vim-R-plugin'
 " Plug 'JuliaLang/julia-vim'
@@ -62,14 +59,14 @@ Plug 'ekalinin/Dockerfile.vim'
 
 " Plug 'http://git.code.sf.net/p/vim-latex/vim-latex'
 
-Plug 'pangloss/vim-javascript'
-Plug 'https://github.com/Shutnik/jshint2.vim.git'
-Plug 'https://github.com/sidorares/node-vim-debugger.git'
+"Plug 'pangloss/vim-javascript'
+"Plug 'https://github.com/Shutnik/jshint2.vim.git'
+"Plug 'https://github.com/sidorares/node-vim-debugger.git'
 
-Plug 'xmledit'
+"Plug 'xmledit'
 "Plug 'tpope/vim-rails.git'
-Plug 'plasticboy/vim-markdown'
-Plug 'suan/vim-instant-markdown'
+"Plug 'plasticboy/vim-markdown'
+"Plug 'suan/vim-instant-markdown'
 " Plug 
 
 Plug 'derekwyatt/vim-scala'
@@ -79,17 +76,6 @@ call plug#end()
 
 " Git repos on your local machine (i.e. when working on your own plugin)
 filetype plugin indent on     " required!
-"
-" Brief help
-" :PlugList          - list configured bundles
-" :PlugInstall(!)    - install (update) bundles
-" :PlugSearch(!) foo - search (or refresh cache first) for foo
-" :PlugClean(!)      - confirm (or auto-approve) removal of unused
-" bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plug commands are not allowed.
-"======================================================================
 
 """-----other general vim config--------------------------------
 filetype off 
@@ -242,7 +228,7 @@ highlight nonascii guibg=Red ctermbg=2
 " endif
 
 """ grammar check -------------------------------------------
-let g:languagetool_jar="/Users/karenyng/Software/LanguageTool-2.7/languagetool-commandline.jar"
+"let g:languagetool_jar="/Users/karenyng/Software/LanguageTool-2.7/languagetool-commandline.jar"
 
 """ ------taglist config -------------------------------------
 set tags=./tags;/
@@ -431,6 +417,6 @@ au BufNewFile,BufRead *.scala set tabstop=2
 let g:EclimCompletionMethod = 'completefunc'
 
 """ ------- slime config -----------------------------------------------
-let g:slime_target = "tmux"
-let g:slime_paste_file = "$HOME/.slime_paste"
+" let g:slime_target = "tmux"
+" let g:slime_paste_file = "$HOME/.slime_paste"
 
