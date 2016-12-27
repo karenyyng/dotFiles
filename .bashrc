@@ -190,7 +190,7 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}:/${PWD##*/}\007"'
 # alias
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
-# alias ipynb='jupyter notebook'
+alias ipynb='jupyter notebook'
 
 # source 
 # source /usr/local/bin/activate.sh
