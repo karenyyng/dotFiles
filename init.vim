@@ -50,7 +50,7 @@ Plug 'jpalardy/vim-slime'                            " send code to IPython
 Plug 'klen/python-mode'
 "Plug 'pythoncomplete'
 
-Plug 'c.vim'
+" Plug 'c.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'jalvesaq/R-Vim-runtime'
 " Plug 'Vim-R-plugin'
