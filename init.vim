@@ -1,4 +1,4 @@
-" Vim setup for Mac OSX 10.10.5 Yosemite
+" Setup for general Linux distributions 
 " Author: Karen Ng <karen.yyng@gmail.com>
 "
 """-----Vundle config-------------------------------------------
@@ -7,82 +7,75 @@ set nocompatible              " be iMproved
 filetype off                  " required!
 filetype plugin indent on
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" ----------let Vundle manage Vundle ---------------------------
-" " required! 
-Plugin 'gmarik/vundle'
+" Use Vim Plug to manage plugins
+call plug#begin('~/.config/nvim/plug')
 
 "---------- My bundles (plugins) here:--------------------------
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}  " improves startup time
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  " improves startup time
+" Plug 'L9'   				    " for vim programming
 
 "--------essential tools for vim navigation---------------------
-Plugin 'majutsushi/tagbar'		" improved tag viewer
-" Plugin 'taglist.vim'       		" tags viewer 
+Plug 'majutsushi/tagbar'		" improved tag viewer
+" Plug 'taglist.vim'       		" tags viewer 
 
-" Plugin 'scrooloose/nerdtree.git'  	" file browser
-Plugin 'https://github.com/kien/ctrlp.vim' " file search
-Plugin 'Lokaltog/vim-easymotion'        " easier vim search highlight
+" Plug 'scrooloose/nerdtree.git'  	" file browser
+Plug 'https://github.com/kien/ctrlp.vim' " file search
+Plug 'Lokaltog/vim-easymotion'        " easier vim search highlight
 
 " -------shell multiplexr -------------------------------------
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
+"Plug 'jpalardy/vim-slime'
+"Plug 'https://github.com/ervandew/screen.git'  " screen 
+
 
 " ---------- vim tweaks ----------------------------------------
 "  status line 
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
-"  "------- correct for spellings and grammar stuf ----------------
-"  Plugin 'LanguageTool'
+"------- correct for spellings and grammar stuf ----------------
+" Plug 'LanguageTool'
 
 "-------language non-specific assistance plugin----------------
-Plugin 'SirVer/ultisnips'  			       " quickly add code template
-Plugin 'honza/vim-snippets'			       " where code snippets are
-" Plugin 'AutoComplPop'                                  " autocomplete menu"
-" Plugin 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
-Plugin 'https://github.com/scrooloose/syntastic.git'   " syntax check
-Plugin 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
-Plugin 'jpalardy/vim-slime'                            " send code to IPython
+Plug 'SirVer/ultisnips'  			       " quickly add code template
+Plug 'honza/vim-snippets'			       " where code snippets are
+" Plug 'AutoComplPop'                                  " autocomplete menu"
+Plug 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
+Plug 'https://github.com/scrooloose/syntastic.git'   " syntax check
+Plug 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
+Plug 'jpalardy/vim-slime'                            " send code to IPython
 
 
 "-------language specific plugins ------------------------------
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'klen/python-mode'
-"Plugin 'pythoncomplete'
+"Plug 'maksimr/vim-jsbeautify'
+Plug 'klen/python-mode'
+"Plug 'pythoncomplete'
 
-Plugin 'c.vim'
-Plugin 'ekalinin/Dockerfile.vim'
+Plug 'c.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'jalvesaq/R-Vim-runtime'
+" Plug 'Vim-R-plugin'
+" Plug 'JuliaLang/julia-vim'
+Plug 'ekalinin/Dockerfile.vim'
 
-" Plugin 'http://git.code.sf.net/p/vim-latex/vim-latex'
+" Plug 'http://git.code.sf.net/p/vim-latex/vim-latex'
 
-Plugin 'pangloss/vim-javascript'
-Plugin 'https://github.com/Shutnik/jshint2.vim.git'
-Plugin 'https://github.com/sidorares/node-vim-debugger.git'
+"Plug 'pangloss/vim-javascript'
+"Plug 'https://github.com/Shutnik/jshint2.vim.git'
+"Plug 'https://github.com/sidorares/node-vim-debugger.git'
 
-Plugin 'xmledit'
-"Plugin 'tpope/vim-rails.git'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
-" Plugin 
+"Plug 'xmledit'
+"Plug 'tpope/vim-rails.git'
+"Plug 'plasticboy/vim-markdown'
+"Plug 'suan/vim-instant-markdown'
+" Plug 
 
-Plugin 'derekwyatt/vim-scala'
-Plugin 'spiroid/vim-ultisnip-scala'
+Plug 'derekwyatt/vim-scala'
+Plug 'spiroid/vim-ultisnip-scala'
 
-call vundle#end()
+call plug#end()
 
 " Git repos on your local machine (i.e. when working on your own plugin)
 filetype plugin indent on     " required!
-"
-" Brief help
-" :PluginList          - list configured bundles
-" :PluginInstall(!)    - install (update) bundles
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused
-" bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin commands are not allowed.
-"======================================================================
 
 """-----other general vim config--------------------------------
 filetype off 
@@ -121,7 +114,8 @@ let g:SimpylFold_docstring_preview = 1
 "set foldmethod=syntax
 "set foldlevelstart=1
 
-let g:python_host_prog='/usr/bin/python3'
+let g:python3_host_prog='/opt/conda/bin/python'
+"let g:loaded_python_provider = 1 " disable python 2 support 
 let g:pymode_folding = 1      " Python
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
@@ -234,7 +228,7 @@ highlight nonascii guibg=Red ctermbg=2
 " endif
 
 """ grammar check -------------------------------------------
-let g:languagetool_jar="/Users/karenyng/Software/LanguageTool-2.7/languagetool-commandline.jar"
+"let g:languagetool_jar="/Users/karenyng/Software/LanguageTool-2.7/languagetool-commandline.jar"
 
 """ ------taglist config -------------------------------------
 set tags=./tags;/
@@ -423,6 +417,6 @@ au BufNewFile,BufRead *.scala set tabstop=2
 let g:EclimCompletionMethod = 'completefunc'
 
 """ ------- slime config -----------------------------------------------
-let g:slime_target = "tmux"
-let g:slime_paste_file = "$HOME/.slime_paste"
+" let g:slime_target = "tmux"
+" let g:slime_paste_file = "$HOME/.slime_paste"
 
