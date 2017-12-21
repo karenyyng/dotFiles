@@ -6,6 +6,7 @@ set re=1
 set nocompatible              " be iMproved
 filetype off                  " required!
 filetype plugin indent on
+filetype indent on 
 
 " Use Vim Plug to manage plugins
 call plug#begin('~/.config/nvim/plug')
@@ -15,17 +16,14 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  " improves startup time
 " Plug 'L9'   				    " for vim programming
 
 "--------essential tools for vim navigation---------------------
-Plug 'majutsushi/tagbar'		" improved tag viewer
-" Plug 'taglist.vim'       		" tags viewer 
-
 " Plug 'scrooloose/nerdtree.git'  	" file browser
 Plug 'https://github.com/kien/ctrlp.vim' " file search
 Plug 'Lokaltog/vim-easymotion'        " easier vim search highlight
+Plug 'https://github.com/vim-scripts/taglist.vim.git'
 
 " -------shell multiplexr -------------------------------------
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'jpalardy/vim-slime'
-"Plug 'https://github.com/ervandew/screen.git'  " screen 
 
 
 " ---------- vim tweaks ----------------------------------------
@@ -48,7 +46,6 @@ Plug 'jpalardy/vim-slime'                            " send code to IPython
 "-------language specific plugins ------------------------------
 "Plug 'maksimr/vim-jsbeautify'
 Plug 'klen/python-mode'
-"Plug 'pythoncomplete'
 
 " Plug 'c.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -78,9 +75,6 @@ call plug#end()
 filetype plugin indent on     " required!
 
 """-----other general vim config--------------------------------
-filetype off 
-filetype indent on 
-filetype plugin on 
 syntax enable
 set ruler
 set laststatus=2 showcmd showmode 
@@ -114,7 +108,7 @@ let g:SimpylFold_docstring_preview = 1
 "set foldmethod=syntax
 "set foldlevelstart=1
 
-let g:python3_host_prog='/opt/conda/bin/python'
+let g:python3_host_prog='/usr/local/bin/python3'
 "let g:loaded_python_provider = 1 " disable python 2 support 
 let g:pymode_folding = 1      " Python
 let javaScript_fold=1         " JavaScript
@@ -145,14 +139,13 @@ augroup vimrc_autocmds
     autocmd FileType javascript set tabstop=4 
     autocmd FileType javascript set shiftwidth=4
     autocmd FileType javascript set smartindent
-    autocmd FileType python :AcpDisable
-    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType python set textwidth=79
-    autocmd FileType python set wrapmargin=0
-    autocmd FileType python set formatoptions+=t
-    autocmd FileType python match Excess /\%80v.*/
-    autocmd FileType python set wrap
-    autocmd FileType python set completeopt-=preview 
+    " autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    " autocmd FileType python set textwidth=79
+    " autocmd FileType python set wrapmargin=0
+    " autocmd FileType python set formatoptions+=t
+    " autocmd FileType python match Excess /\%80v.*/
+    " autocmd FileType python set wrap
+    " autocmd FileType python set completeopt-=preview 
     autocmd FileType python set nonumber
     autocmd FileType pyrex set tabstop=4 
     autocmd FileType pyrex set shiftwidth=4
@@ -275,29 +268,29 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipEditSplit="normal"
 
 """ Tagbar settings---------------------------------------------
-nmap <F4> :TagbarToggle<CR>
-let g:tagbar_left=1
-let g:tagbar_type_tex = {
-    \ 'ctagstype' : 'latex',
-    \ 'kinds'     : [
-        \ 's:sections',
-        \ 'g:graphics:0:0',
-        \ 'l:labels',
-        \ 'r:refs:1:0',
-        \ 'p:pagerefs:1:0'
-    \ ],
-    \ 'sort'    : 1,
-\ }
-
-"" for R 
-let g:tagbar_type_r = {
-    \ 'ctagstype' : 'r',
-    \ 'kinds'     : [
-        \ 'f:Functions',
-        \ 'g:GlobalVariables',
-        \ 'v:FunctionVariables',
-    \ ]
-\ }
+" nmap <F4> :TagbarToggle<CR>
+" let g:tagbar_left=1
+" let g:tagbar_type_tex = {
+"     \ 'ctagstype' : 'latex',
+"     \ 'kinds'     : [
+"         \ 's:sections',
+"         \ 'g:graphics:0:0',
+"         \ 'l:labels',
+"         \ 'r:refs:1:0',
+"         \ 'p:pagerefs:1:0'
+"     \ ],
+"     \ 'sort'    : 1,
+" \ }
+" 
+" "" for R 
+" let g:tagbar_type_r = {
+"     \ 'ctagstype' : 'r',
+"     \ 'kinds'     : [
+"         \ 'f:Functions',
+"         \ 'g:GlobalVariables',
+"         \ 'v:FunctionVariables',
+"     \ ]
+" \ }
 
 
 """ Syntastic settings-------------------------------------------- 
@@ -380,11 +373,11 @@ let g:pymode_syntax_all = 1
 let g:pymode_rope_goto_definition_bind = '<C-c>g'
 let g:pymode_lint_onfly=0
 let g:pymode_lint_checker=["pyflakes", "pep8"]
-let g:pymode_lint_sort=['E', 'C', 'I', 'W']
+" let g:pymode_lint_sort=['E', 'C', 'I', 'W']
 let g:pymode_syntax_highlight_exceptions = 1 
 " let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 " let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_lint_ignore="C0110"
+" let g:pymode_lint_ignore="C0110"
 
 """" cpp highlighting -------------------------------------
 let g:cpp_class_scope_highlight = 1
