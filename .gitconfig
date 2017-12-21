@@ -1,8 +1,11 @@
 [user]
 	name=Karen Yin-Yee Ng
-	email=karen.yyng@gmail.com
-	username=karenyyng
+	email=kng@ahcusa.com
+	username=kng
 [core]
 	editor=vim
 [diff]
 	tool=vimdiff
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
