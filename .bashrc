@@ -191,12 +191,4 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}:/${PWD##*/}\007"'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias ipynb='jupyter notebook'
-
-# source 
-# source /usr/local/bin/activate.sh
-
-# PATHS
-# export R_LIBS="~/Software/R"
-
-# configure PATH
-# PATH=$PATH:/usr/local/MATLAB/R2015b/bin
+alias ipynb_docker='jupyter notebook --no-browser --allow-root --ip 0.0.0.0'
