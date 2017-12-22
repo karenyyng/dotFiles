@@ -108,7 +108,7 @@ let g:SimpylFold_docstring_preview = 1
 "set foldmethod=syntax
 "set foldlevelstart=1
 
-let g:python3_host_prog='/usr/local/bin/python3'
+let g:python3_host_prog='/opt/conda/bin/python3'
 "let g:loaded_python_provider = 1 " disable python 2 support 
 let g:pymode_folding = 1      " Python
 let javaScript_fold=1         " JavaScript
