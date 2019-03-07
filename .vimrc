@@ -1,4 +1,4 @@
-" Vim setup for Mac OSX 10.10.5 Yosemite
+" Setup for general Linux distributions 
 " Author: Karen Ng <karen.yyng@gmail.com>
 "
 """-----Vundle config-------------------------------------------
@@ -6,103 +6,83 @@ set re=1
 set nocompatible              " be iMproved
 filetype off                  " required!
 filetype plugin indent on
-set spell spelllang=en_us
+filetype indent on 
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" ----------let Vundle manage Vundle ---------------------------
-" " required! 
-Plugin 'gmarik/vundle'
+" Use Vim Plug to manage plugins
+call plug#begin('~/.config/nvim/plug')
 
 "---------- My bundles (plugins) here:--------------------------
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}  " improves startup time
-Plugin 'L9'   				    " for vim programming
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  " improves startup time
+" Plug 'L9'   				    " for vim programming
 
 "--------essential tools for vim navigation---------------------
-Plugin 'majutsushi/tagbar'		" improved tag viewer
-Plugin 'taglist.vim'       		" tags viewer 
-
-" Plugin 'scrooloose/nerdtree.git'  	" file browser
-Plugin 'https://github.com/kien/ctrlp.vim' " file search
-Plugin 'Lokaltog/vim-easymotion'        " easier vim search highlight
+" Plug 'scrooloose/nerdtree.git'  	" file browser
+Plug 'https://github.com/kien/ctrlp.vim' " file search
+Plug 'Lokaltog/vim-easymotion'        " easier vim search highlight
+Plug 'https://github.com/vim-scripts/taglist.vim.git'
 
 " -------shell multiplexr -------------------------------------
-Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'jpalardy/vim-slime'
-"Plugin 'https://github.com/ervandew/screen.git'  " screen 
-
+Plug 'christoomey/vim-tmux-navigator'
+"Plug 'jpalardy/vim-slime'
 
 " ---------- vim tweaks ----------------------------------------
 "  status line 
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 "------- correct for spellings and grammar stuf ----------------
-Plugin 'LanguageTool'
+" Plug 'LanguageTool'
 
 "-------language non-specific assistance plugin----------------
-Plugin 'SirVer/ultisnips'  			       " quickly add code template
-Plugin 'honza/vim-snippets'			       " where code snippets are
-Plugin 'AutoComplPop'                                  " autocomplete menu"
-Plugin 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
-Plugin 'https://github.com/scrooloose/syntastic.git'   " syntax check
-Plugin 'git://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
+Plug 'SirVer/ultisnips'  			       " quickly add code template
+Plug 'honza/vim-snippets'			       " where code snippets are
+" Plug 'AutoComplPop'                                  " autocomplete menu"
+Plug 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
+Plug 'https://github.com/scrooloose/syntastic.git'   " syntax check
+Plug 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
+Plug 'jpalardy/vim-slime'                            " send code to IPython
 
 
 "-------language specific plugins ------------------------------
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'klen/python-mode'
-"Plugin 'pythoncomplete'
+"Plug 'maksimr/vim-jsbeautify'
+" Plug 'klen/python-mode'
 
-Plugin 'c.vim'
-"Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'jalvesaq/R-Vim-runtime'
-Plugin 'Vim-R-plugin'
-Plugin 'JuliaLang/julia-vim'
-Plugin 'ekalinin/Dockerfile.vim'
+" Plug 'c.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'jalvesaq/R-Vim-runtime'
+" Plug 'Vim-R-plugin'
+" Plug 'JuliaLang/julia-vim'
+Plug 'ekalinin/Dockerfile.vim'
 
-Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
+" Plug 'http://git.code.sf.net/p/vim-latex/vim-latex'
 
-Plugin 'pangloss/vim-javascript'
-Plugin 'https://github.com/Shutnik/jshint2.vim.git'
-Plugin 'https://github.com/sidorares/node-vim-debugger.git'
+"Plug 'pangloss/vim-javascript'
+"Plug 'https://github.com/Shutnik/jshint2.vim.git'
+"Plug 'https://github.com/sidorares/node-vim-debugger.git'
 
-Plugin 'xmledit'
-"Plugin 'tpope/vim-rails.git'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
-" Plugin 
+"Plug 'xmledit'
+"Plug 'tpope/vim-rails.git'
+" -----------markdown plugins ----------------------------------
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
 
-Plugin 'derekwyatt/vim-scala'
-Plugin 'spiroid/vim-ultisnip-scala'
 
-call vundle#end()
+Plug 'derekwyatt/vim-scala'
+Plug 'spiroid/vim-ultisnip-scala'
+
+call plug#end()
 
 " Git repos on your local machine (i.e. when working on your own plugin)
 filetype plugin indent on     " required!
-"
-" Brief help
-" :PluginList          - list configured bundles
-" :PluginInstall(!)    - install (update) bundles
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused
-" bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin commands are not allowed.
-"======================================================================
 
 """-----other general vim config--------------------------------
-filetype off 
-filetype indent on 
-filetype plugin on 
 syntax enable
 set ruler
 set laststatus=2 showcmd showmode 
 set incsearch ignorecase smartcase hlsearch 
 set nonumber
 set nocompatible 
-set clipboard=unnamed
+set clipboard=unnamedplus
 set wrap
 set textwidth=79
 set wrapmargin=0
@@ -129,9 +109,9 @@ let g:SimpylFold_docstring_preview = 1
 "set foldmethod=syntax
 "set foldlevelstart=1
 
-let g:python_host_prog='/opt/local/bin/python'
+" let g:python3_host_prog='/Users/karenyng/miniconda3/bin/python3'
+"let g:loaded_python_provider = 1 " disable python 2 support 
 let g:pymode_folding = 1      " Python
-let g:pymode_motion = 0  
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
 let php_folding=1             " PHP
@@ -160,15 +140,18 @@ augroup vimrc_autocmds
     autocmd FileType javascript set tabstop=4 
     autocmd FileType javascript set shiftwidth=4
     autocmd FileType javascript set smartindent
-    autocmd FileType python :AcpDisable
-    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType python set textwidth=79
-    autocmd FileType python set wrapmargin=0
-    autocmd FileType python set formatoptions+=t
-    autocmd FileType python match Excess /\%80v.*/
-    autocmd FileType python set wrap
-    autocmd FileType python set completeopt-=preview 
+    " autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    " autocmd FileType python set textwidth=79
+    " autocmd FileType python set wrapmargin=0
+    " autocmd FileType python set formatoptions+=t
+    " autocmd FileType python match Excess /\%80v.*/
+    " autocmd FileType python set wrap
+    " autocmd FileType python set completeopt-=preview 
+    autocmd FileType python set tabstop=4 
     autocmd FileType python set nonumber
+    autocmd FileType python set shiftwidth=4
+    autocmd FileType python set expandtab 
+    autocmd FileType python set softtabstop=4 
     autocmd FileType pyrex set tabstop=4 
     autocmd FileType pyrex set shiftwidth=4
     autocmd FileType pyrex set smartindent
@@ -183,6 +166,8 @@ augroup vimrc_autocmds
     autocmd FileType pyrex set nonumber
     autocmd FileType make set noexpandtab
     autocmd FileType css set shiftwidth=2
+    autocmd FileType json set tabstop=2
+    autocmd FileType json set shiftwidth=2
     autocmd FileType css set tabstop=2
     autocmd FileType r set shiftwidth=2
     autocmd FileType r set tabstop=2
@@ -231,19 +216,23 @@ augroup vimrc_autocmds
     autocmd FileType java set wrapmargin=0
 augroup END
 
+""" -----godown-vim ---------------------------------------
+" :GodownLiveToogle
+let g:godown_autorun = 1 
+let g:godown_port = 8090
 
 """ ------ascii specific setting-----------------------------
 syntax match nonascii "[^\x00-\x7F]" " highlighting ascii
 highlight nonascii guibg=Red ctermbg=2
 
 "" spell check configuration----------------------------------
-if v:version >= 700
-" " Enable spell check for text files
-  autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
-endif
+" if v:version >= 700
+" " " Enable spell check for text files
+"   autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
+" endif
 
 """ grammar check -------------------------------------------
-let g:languagetool_jar="/Users/karenyng/Software/LanguageTool-2.7/languagetool-commandline.jar"
+"let g:languagetool_jar="/Users/karenyng/Software/LanguageTool-2.7/languagetool-commandline.jar"
 
 """ ------taglist config -------------------------------------
 set tags=./tags;/
@@ -263,9 +252,6 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "map function 8 to toggle taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
 
-""" Nerd tree configuration ------------------------------------- 
-" silent! nmap <F3> :NERDTreeToggle<CR>
-
 """ YouCompleteMe config ----------------------------------------
 let g:ycm_collect_identifiers_from_tags_files = 1 
 let g:ycm_seed_identifiers_with_syntax=1
@@ -274,14 +260,14 @@ let g:ycm_key_list_previous_completion=['<C-TAB>','<Up>']
 let g:ycm_key_list_selection_completion=['<C-TAB>', '<Down>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_filetype_specific_completion_to_disable={'python' : 1}
-let g:ycm_filetype_whitelist={'python':1, 'scala':0, 'java':0, 'cpp':1, 'html':0}
+let g:ycm_filetype_whitelist={'python':0, 'scala':0, 'java':0, 'cpp':1, 'html':0}
 let g:ycm_filetype_specific_completion_to_disable={'scala': 1, 'html':1}
 let g:ycm_register_as_syntastic_checker = 0 
 let g:ycm_global_ycm_extra_conf="~/.vim/.bundle/YouCompleteMe/.ycm_extra_config.py"
 
 """ Ultisnips setting
-let g:UltiSnipSnippetsDir="/Users/karenyng/.vim/bundle/vim-snippets/UltiSnips"
-let g:UltiSnipSnippetsDirectories =["/Users/karenyng/.vim/bundle/vim-snippets/snippets", "/Users/karenyng/.vim/bundle/vim-snippets/UltiSnips"]
+let g:UltiSnipSnippetsDir="~/.vim/bundle/vim-snippets/UltiSnips"
+let g:UltiSnipSnippetsDirectories =["~/.vim/bundle/vim-snippets/snippets", "~/.vim/bundle/vim-snippets/UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsListSnippets="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -290,42 +276,43 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipEditSplit="normal"
 
 """ Tagbar settings---------------------------------------------
-nmap <F4> :TagbarToggle<CR>
-let g:tagbar_left=1
-let g:tagbar_type_tex = {
-    \ 'ctagstype' : 'latex',
-    \ 'kinds'     : [
-        \ 's:sections',
-        \ 'g:graphics:0:0',
-        \ 'l:labels',
-        \ 'r:refs:1:0',
-        \ 'p:pagerefs:1:0'
-    \ ],
-    \ 'sort'    : 1,
-\ }
-
-"" for R 
-let g:tagbar_type_r = {
-    \ 'ctagstype' : 'r',
-    \ 'kinds'     : [
-        \ 'f:Functions',
-        \ 'g:GlobalVariables',
-        \ 'v:FunctionVariables',
-    \ ]
-\ }
+" nmap <F4> :TagbarToggle<CR>
+" let g:tagbar_left=1
+" let g:tagbar_type_tex = {
+"     \ 'ctagstype' : 'latex',
+"     \ 'kinds'     : [
+"         \ 's:sections',
+"         \ 'g:graphics:0:0',
+"         \ 'l:labels',
+"         \ 'r:refs:1:0',
+"         \ 'p:pagerefs:1:0'
+"     \ ],
+"     \ 'sort'    : 1,
+" \ }
+" 
+" "" for R 
+" let g:tagbar_type_r = {
+"     \ 'ctagstype' : 'r',
+"     \ 'kinds'     : [
+"         \ 'f:Functions',
+"         \ 'g:GlobalVariables',
+"         \ 'v:FunctionVariables',
+"     \ ]
+" \ }
 
 
 """ Syntastic settings-------------------------------------------- 
 let g:syntastic_aggregate_errors = 1
 "set statusline+=%warningmsg# 
 "set statusline+=%*
+let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_always_populate_loc_list = 1
 
-let g:syntastic_mode_map = { 'passive_filetypes': ['python', 'tex'] }
+let g:syntastic_mode_map = { 'passive_filetypes': ['tex', 'py'] }
 "let g:syntastic_disabled_filetypes=['python', '*.py'] DEPRECIATED
 "
 let g:syntastic_cpp_checkers = ["gcc"]
@@ -374,56 +361,64 @@ hi Conceal cterm=NONE ctermbg=NONE guibg=Blue guifg=Yellow
 let g:tex_conceal= 'adgm'
 
 """-----python config-------------------------------------------
-let g:python_host_prog='/opt/local/bin/python'
+let g:pymode_python = 'python3'
 
 """ pymode config
+let g:pymode_rope=0
+let g:pymode_rope_lookup_project=0 
+let g:pymode_motion = 0  
 let g:pymode_rope_complete_on_dot=0
 let g:pymode_rope_completion=0 "0
 let g:pymode_rope_completion_bind='<C-Space>'
 let g:pymode_rope_autoimport=1
-let g:pymode_rope_lookup_project=1 
-let g:pymode_doc=1
+" let g:pymode_doc=1
 let g:pymode_indent=1
 let g:pymode_rope_show_doc_bind = 'K'
 let g:pymode_rope_goto_def_newwin = "new" 
 "let g:pymode_doc_key='K'
-let g:pymode_folding=1
-let g:pymode_syntax_all = 1
-let g:pymode_rope_goto_definition_bind = '<C-c>g'
+" let g:pymode_syntax_all = 1
+" let g:pymode_rope_goto_definition_bind = '<C-c>g'
 let g:pymode_lint_onfly=0
-let g:pymode_lint_checker=["pyflakes", "pep8"]
-let g:pymode_lint_sort=['E', 'C', 'I', 'W']
-let g:pymode_syntax_highlight_exceptions = 1 
+"let g:pymode_lint_checker=["pyflakes", "pep8"]
+" let g:pymode_lint_sort=['E', 'C', 'I', 'W']
+"let g:pymode_syntax_highlight_exceptions = 1 
 " let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 " let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_lint_ignore="C0110"
+" let g:pymode_lint_ignore="C0110"
 
 """" cpp highlighting -------------------------------------
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
 """-----vim-r config-------------------------------------------
-let vimrplugin_r_path = "/opt/local/bin/R"
-let vimrplugin_term = "/Applications/iTerm.app/Contents/MacOS/iTerm2"
-let vimrplugin_applescript = 0
-let vimrplugin_assign = 0
-let g:vimrplugin_insert_mode_cmds = 0 
+" let vimrplugin_r_path = "/usr/local/bin/R"
+" let vimrplugin_term = "/Applications/iTerm.app/Contents/MacOS/iTerm2"
+" let vimrplugin_applescript = 0
+" let vimrplugin_assign = 0
+" let g:vimrplugin_insert_mode_cmds = 0 
 
 """ ---jsbeautify-----------
-map <c-j> :call JsBeautify()<cr>
-" or
-autocmd FileType javascript noremap <buffer>  <c-j> :call JsBeautify()<cr>
-" for json
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-" for jsx
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-" for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+"map <c-f> :call JsBeautify()<cr>
+"" or
+"autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+"" for json
+"autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+"" for jsx
+"autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+"" for html
+"autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+"" for css or scss
+"autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 """ -----scala-config--------------------------------------------------
 au BufRead,BufNewFile *.scala set filetype=scala
 au BufNewFile,BufRead *.scala set tabstop=2
 
 let g:EclimCompletionMethod = 'completefunc'
+
+""" ------- slime config -----------------------------------------------
+" let g:slime_target = "tmux"
+" let g:slime_paste_file = "$HOME/.slime_paste"
+
+"""---------markdown preview settings ----------------------------------
+let g:mkdp_auto_start = 1
