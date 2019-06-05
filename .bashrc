@@ -183,8 +183,13 @@ color_grbd=`color green bold`
 color_bubd=`color blue bold`
 color_orbd=`color orange bold`
 color_rdbd=`color red bold`
+
+# ----------------set command prompt ---------------------------
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
 PS1="\[${color_rdbd}\]${USER}\[${color_reset}\]:\[\033[38;5;32m\]\W\
-\[\033[m\033[38;5;208m\]$ \[\033[m\]"
+\[\033[m\033[38;5;208m\]\$(parse_git_branch)\n\$ \[\033[m\]"
 PROMPT_COMMAND='echo -ne "\033]0;${USER}:/${PWD##*/}\007"'
 
 # alias
