@@ -244,13 +244,18 @@ let Tlist_Close_On_Select = 1
 
 " Open definition in upper split
 " " C-w C-]
-" Open definition in a new tab
+" Open definition in a new tab with Ctrl-\
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-" Open the definition in a vertical split
+
+" Open the definition in a vertical split with Alt-]
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-"map function 8 to toggle taglist
+"map function F8 to toggle taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
+"map function F7 to toggle vim file explorer
+nnoremap <silent> <F7> :Lex <CR>
+"map function F6 to toggle CtrlP to search most recent files 
+nnoremap <silent> <F6> :CtrlPMRU <CR>
 
 """ YouCompleteMe config ----------------------------------------
 let g:ycm_collect_identifiers_from_tags_files = 1 
