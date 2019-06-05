@@ -62,12 +62,17 @@ Plug 'ekalinin/Dockerfile.vim'
 
 "Plug 'xmledit'
 "Plug 'tpope/vim-rails.git'
-"Plug 'plasticboy/vim-markdown'
-"Plug 'suan/vim-instant-markdown'
-" Plug 
 
 Plug 'derekwyatt/vim-scala'
 Plug 'spiroid/vim-ultisnip-scala'
+
+" -----------markdown plugins ----------------------------------
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+
+" ----------formatting specific plugin ------------------------
+Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 
