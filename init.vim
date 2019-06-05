@@ -25,7 +25,6 @@ Plug 'https://github.com/vim-scripts/taglist.vim.git'
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'jpalardy/vim-slime'
 
-
 " ---------- vim tweaks ----------------------------------------
 "  status line 
 Plug 'bling/vim-airline'
@@ -240,9 +239,11 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "map function 8 to toggle taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
+"map function F7 to toggle vim file explorer
+nnoremap <silent> <F7> :Lex <CR>
+"map function F6 to toggle CtrlP to search most recent files 
+nnoremap <silent> <F6> :CtrlPMRU <CR>
 
-""" Nerd tree configuration ------------------------------------- 
-" silent! nmap <F3> :NERDTreeToggle<CR>
 
 """ YouCompleteMe config ----------------------------------------
 let g:ycm_collect_identifiers_from_tags_files = 1 
@@ -412,4 +413,3 @@ let g:EclimCompletionMethod = 'completefunc'
 """ ------- slime config -----------------------------------------------
 " let g:slime_target = "tmux"
 " let g:slime_paste_file = "$HOME/.slime_paste"
-
