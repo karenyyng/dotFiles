@@ -238,8 +238,14 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Open the definition in a vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-"map function 8 to toggle taglist
+"map function F8 to toggle taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
+
+"map function F7 to toggle vim file explorer
+nnoremap <silent> <F7> :Lex <CR>
+
+"map function F6 to toggle CtrlP to search most recent files 
+nnoremap <silent> <F6> :CtrlPMRU <CR>
 
 """ Nerd tree configuration ------------------------------------- 
 " silent! nmap <F3> :NERDTreeToggle<CR>
