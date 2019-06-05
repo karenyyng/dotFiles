@@ -1,4 +1,4 @@
-" Setup for general Linux distributions 
+" Setup for general Linux distributions
 " Author: Karen Ng <karen.yyng@gmail.com>
 "
 """-----Vundle config-------------------------------------------
@@ -6,7 +6,7 @@ set re=1
 set nocompatible              " be iMproved
 filetype off                  " required!
 filetype plugin indent on
-filetype indent on 
+filetype indent on
 
 " Use Vim Plug to manage plugins
 call plug#begin('~/.config/nvim/plug')
@@ -26,7 +26,7 @@ Plug 'christoomey/vim-tmux-navigator'
 "Plug 'jpalardy/vim-slime'
 
 " ---------- vim tweaks ----------------------------------------
-"  status line 
+"  status line
 Plug 'bling/vim-airline'
 
 "------- correct for spellings and grammar stuf ----------------
@@ -66,9 +66,12 @@ Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 
-
+" ----------scala specific plugins ---------------------------
 Plug 'derekwyatt/vim-scala'
 Plug 'spiroid/vim-ultisnip-scala'
+
+" ----------formatting specific plugin ------------------------
+Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 
@@ -78,10 +81,10 @@ filetype plugin indent on     " required!
 """-----other general vim config--------------------------------
 syntax enable
 set ruler
-set laststatus=2 showcmd showmode 
-set incsearch ignorecase smartcase hlsearch 
+set laststatus=2 showcmd showmode
+set incsearch ignorecase smartcase hlsearch
 set nonumber
-set nocompatible 
+set nocompatible
 set clipboard=unnamedplus
 set wrap
 set textwidth=79
