@@ -2,12 +2,12 @@
 #set -o vi
 ## bind -m vi-insert "\C-l":clear-screen
 
-## --------variables (path shortcuts) ------------------------------------
+## --------variables (path shortcuts) --------------------------------
 ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse/
 slides=~/Documents/Research/slides/
 
 
-###-------environment variables -------------------------------------------
+###-------environment variables --------------------------------------
 LSCOLORS=exfxcxdxbxegedabagacad
 export LSCOLORS
 
@@ -27,12 +27,15 @@ if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
       . /opt/local/etc/profile.d/bash_completion.sh
 fi
 
-# ----------setting command prompt --------------------------------------
+# ----------setting command prompt --------------------------------
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-PS1="\[\033[32;5;32m\]Noctis\[${color_reset}\]:\[\033[38;5;32m\]\w\
+STARTBGCOLOR="\e[47m"
+ENDBGCOLOR="\e[0m"
+PS1="\n\[\033[32;5;32m\]Noctis\[${color_reset}\]:\[\033[38;5;32m\]\w\
 \[\033[m\033[38;5;208m\]\$(parse_git_branch)\n\$ \[\033[m\]"
+
 PROMPT_COMMAND='echo -ne "\033]0; Noctis:/${PWD##*/}\007"'
 
 # ---------- use powerline-shell as the prompt-----------------------------
@@ -54,9 +57,9 @@ export PATH=$PATH:/Library/TeX/texbin/
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-### -------- alias --------------------------------------------------------
+### -------- alias ----------------------------------------------------
 alias vim="nvim"
-alias autopep8='autopep8 --in-place --aggressive --aggressive' 
+alias autopep8='autopep8 --in-place --aggressive --aggressive'
 alias top='top -o CPU'
 alias splitshow='open -a /Applications/SplitShow.app'
 alias ls='ls -G -1'
