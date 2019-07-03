@@ -44,7 +44,7 @@ Plug 'jpalardy/vim-slime'                            " send code to IPython
 
 "-------language specific plugins ------------------------------
 "Plug 'maksimr/vim-jsbeautify'
-Plug 'klen/python-mode'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Plug 'c.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
