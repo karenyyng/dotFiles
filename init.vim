@@ -44,7 +44,7 @@ Plug 'jpalardy/vim-slime'                            " send code to IPython
 
 "-------language specific plugins ------------------------------
 "Plug 'maksimr/vim-jsbeautify'
-" Plug 'klen/python-mode'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Plug 'c.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -112,7 +112,7 @@ let g:SimpylFold_docstring_preview = 1
 "set foldmethod=syntax
 "set foldlevelstart=1
 
-" let g:python3_host_prog='/Users/karenyng/miniconda3/bin/python3'
+let g:python3_host_prog='python3'
 "let g:loaded_python_provider = 1 " disable python 2 support
 let g:pymode_folding = 1      " Python
 let javaScript_fold=1         " JavaScript
@@ -221,6 +221,7 @@ augroup END
 """ ---- vim-better-whitespace ---------------------------
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 
 """ -----godown-vim ---------------------------------------
 " :GodownLiveToogle
