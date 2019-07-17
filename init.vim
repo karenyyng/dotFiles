@@ -38,7 +38,7 @@ Plug 'SirVer/ultisnips'  			       " quickly add code template
 Plug 'honza/vim-snippets'			       " where code snippets are
 " Plug 'AutoComplPop'                                  " autocomplete menu"
 Plug 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
-Plug 'https://github.com/scrooloose/syntastic.git'   " syntax check
+" Plug 'https://github.com/scrooloose/syntastic.git'   " syntax check
 Plug 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
 Plug 'jpalardy/vim-slime'                            " send code to IPython
 
@@ -86,7 +86,7 @@ set laststatus=2 showcmd showmode
 set incsearch ignorecase smartcase hlsearch 
 set nonumber
 set nocompatible 
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 set wrap
 set textwidth=79
 set wrapmargin=0
