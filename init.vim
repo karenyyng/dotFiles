@@ -25,6 +25,7 @@ Plug 'https://github.com/vim-scripts/taglist.vim.git'
 Plug 'christoomey/vim-tmux-navigator'
 "Plug 'jpalardy/vim-slime'
 
+
 " ---------- vim tweaks ----------------------------------------
 "  status line 
 Plug 'bling/vim-airline'
@@ -37,7 +38,7 @@ Plug 'SirVer/ultisnips'  			       " quickly add code template
 Plug 'honza/vim-snippets'			       " where code snippets are
 " Plug 'AutoComplPop'                                  " autocomplete menu"
 Plug 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
-Plug 'https://github.com/scrooloose/syntastic.git'   " syntax check
+" Plug 'https://github.com/scrooloose/syntastic.git'   " syntax check
 Plug 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
 Plug 'jpalardy/vim-slime'                            " send code to IPython
 
@@ -61,12 +62,17 @@ Plug 'ekalinin/Dockerfile.vim'
 
 "Plug 'xmledit'
 "Plug 'tpope/vim-rails.git'
-"Plug 'plasticboy/vim-markdown'
-"Plug 'suan/vim-instant-markdown'
-" Plug 
 
 Plug 'derekwyatt/vim-scala'
 Plug 'spiroid/vim-ultisnip-scala'
+
+" -----------markdown plugins ----------------------------------
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+
+" ----------formatting specific plugin ------------------------
+Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 
@@ -80,7 +86,7 @@ set laststatus=2 showcmd showmode
 set incsearch ignorecase smartcase hlsearch 
 set nonumber
 set nocompatible 
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 set wrap
 set textwidth=79
 set wrapmargin=0
@@ -107,7 +113,7 @@ let g:SimpylFold_docstring_preview = 1
 "set foldmethod=syntax
 "set foldlevelstart=1
 
-let g:python3_host_prog='/opt/conda/bin/python3'
+let g:python3_host_prog='python3'
 "let g:loaded_python_provider = 1 " disable python 2 support 
 let g:pymode_folding = 1      " Python
 let javaScript_fold=1         " JavaScript
@@ -237,13 +243,17 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Open the definition in a vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-"map function 8 to toggle taglist
+"map function F8 to toggle taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
+
 "map function F7 to toggle vim file explorer
 nnoremap <silent> <F7> :Lex <CR>
+
 "map function F6 to toggle CtrlP to search most recent files 
 nnoremap <silent> <F6> :CtrlPMRU <CR>
 
+""" Nerd tree configuration ------------------------------------- 
+" silent! nmap <F3> :NERDTreeToggle<CR>
 
 """ YouCompleteMe config ----------------------------------------
 let g:ycm_collect_identifiers_from_tags_files = 1 
@@ -413,3 +423,4 @@ let g:EclimCompletionMethod = 'completefunc'
 """ ------- slime config -----------------------------------------------
 " let g:slime_target = "tmux"
 " let g:slime_paste_file = "$HOME/.slime_paste"
+
