@@ -1,4 +1,4 @@
-" Setup for general Linux distributions 
+" Setup for general Linux distributions
 " Author: Karen Ng <karen.yyng@gmail.com>
 "
 """-----Vundle config-------------------------------------------
@@ -6,7 +6,11 @@ set re=1
 set nocompatible              " be iMproved
 filetype off                  " required!
 filetype plugin indent on
-filetype indent on 
+filetype indent on
+
+set background=light
+hi Search ctermfg=black
+
 
 " Use Vim Plug to manage plugins
 call plug#begin('~/.config/nvim/plug')
@@ -27,7 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 
 " ---------- vim tweaks ----------------------------------------
-"  status line 
+"  status line
 Plug 'bling/vim-airline'
 
 "------- correct for spellings and grammar stuf ----------------
@@ -82,10 +86,10 @@ filetype plugin indent on     " required!
 """-----other general vim config--------------------------------
 syntax enable
 set ruler
-set laststatus=2 showcmd showmode 
-set incsearch ignorecase smartcase hlsearch 
+set laststatus=2 showcmd showmode
+set incsearch ignorecase smartcase hlsearch
 set nonumber
-set nocompatible 
+set nocompatible
 " set clipboard=unnamedplus
 set wrap
 set textwidth=79
@@ -106,7 +110,7 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " ---------vim folding-----------------------------------------
 autocmd BufWinLeave *.* mkview
-"autocmd BufWinEnter *.* silent loadview 
+"autocmd BufWinEnter *.* silent loadview
 "
 "
 let g:SimpylFold_docstring_preview = 1
@@ -114,7 +118,7 @@ let g:SimpylFold_docstring_preview = 1
 "set foldlevelstart=1
 
 let g:python3_host_prog='python3'
-"let g:loaded_python_provider = 1 " disable python 2 support 
+"let g:loaded_python_provider = 1 " disable python 2 support
 let g:pymode_folding = 1      " Python
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
@@ -136,12 +140,12 @@ augroup vimrc_autocmds
     " change tab directory automatically
     autocmd BufEnter * silent! lcd %:p:h
     " highlight characters past column 120
-    autocmd FileType html set tabstop=2 
+    autocmd FileType html set tabstop=2
     autocmd FileType html set shiftwidth=2
-    autocmd FileType yaml set tabstop=2 
+    autocmd FileType yaml set tabstop=2
     autocmd FileType yaml set shiftwidth=2
-    autocmd FileType yaml set expandtab 
-    autocmd FileType javascript set tabstop=4 
+    autocmd FileType yaml set expandtab
+    autocmd FileType javascript set tabstop=4
     autocmd FileType javascript set shiftwidth=4
     autocmd FileType javascript set smartindent
     " autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
@@ -150,9 +154,9 @@ augroup vimrc_autocmds
     " autocmd FileType python set formatoptions+=t
     " autocmd FileType python match Excess /\%80v.*/
     " autocmd FileType python set wrap
-    " autocmd FileType python set completeopt-=preview 
+    " autocmd FileType python set completeopt-=preview
     autocmd FileType python set nonumber
-    autocmd FileType pyrex set tabstop=4 
+    autocmd FileType pyrex set tabstop=4
     autocmd FileType pyrex set shiftwidth=4
     autocmd FileType pyrex set smartindent
     autocmd FileType pyrex highlight Excess ctermbg=DarkGrey guibg=Black
@@ -161,49 +165,49 @@ augroup vimrc_autocmds
     autocmd FileType pyrex set formatoptions+=t
     autocmd FileType pyrex match Excess /\%80v.*/
     autocmd FileType pyrex set wrap
-    autocmd FileType pyrex set expandtab 
-    autocmd FileType pyrex set completeopt-=preview 
+    autocmd FileType pyrex set expandtab
+    autocmd FileType pyrex set completeopt-=preview
     autocmd FileType pyrex set nonumber
     autocmd FileType make set noexpandtab
     autocmd FileType css set shiftwidth=2
     autocmd FileType css set tabstop=2
     autocmd FileType r set shiftwidth=2
     autocmd FileType r set tabstop=2
-    autocmd FileType r set expandtab 
+    autocmd FileType r set expandtab
     autocmd FileType r set tags+=RTAGS
     autocmd FileType r set tags+=TAGS
     autocmd FileType r set textwidth=79
     autocmd FileType r set wrapmargin=0
     autocmd FileType cpp set shiftwidth=4
     autocmd FileType cpp set tabstop=4
-    autocmd FileType cpp set expandtab 
+    autocmd FileType cpp set expandtab
     autocmd FileType cpp set textwidth=79
     autocmd FileType cpp set wrapmargin=0
-    autocmd FileType cpp set foldmethod=syntax 
-    autocmd FileType matlab set tabstop=4 
+    autocmd FileType cpp set foldmethod=syntax
+    autocmd FileType matlab set tabstop=4
     autocmd FileType matlab set shiftwidth=4
-    autocmd FileType matlab set expandtab  
+    autocmd FileType matlab set expandtab
     autocmd FileType c set tabstop=4
-    autocmd FileType c set expandtab 
+    autocmd FileType c set expandtab
     autocmd FileType sh set tabstop=2
-    autocmd FileType sh set expandtab 
-    autocmd FileType sh set shiftwidth=2 
+    autocmd FileType sh set expandtab
+    autocmd FileType sh set shiftwidth=2
     autocmd FileType tex set tabstop=2
     autocmd FileType tex setlocal spell spelllang=en_us
     autocmd Filetype tex set spell
-    "autocmd FileType tex set expandtab 
-    autocmd FileType tex set tabstop=2 
-    autocmd FileType tex set softtabstop=2 
+    "autocmd FileType tex set expandtab
+    autocmd FileType tex set tabstop=2
+    autocmd FileType tex set softtabstop=2
     autocmd FileType tex set shiftwidth=2
-    autocmd FileType markdown set tabstop=2 
+    autocmd FileType markdown set tabstop=2
     autocmd FileType markdown set shiftwidth=2
-    "autocmd FileType markdown set expandtab 
-    autocmd FileType ruby set tabstop=2 
+    "autocmd FileType markdown set expandtab
+    autocmd FileType ruby set tabstop=2
     autocmd FileType ruby set shiftwidth=2
-    autocmd FileType ruby set expandtab 
-    autocmd FileType eruby set tabstop=2 
+    autocmd FileType ruby set expandtab
+    autocmd FileType eruby set tabstop=2
     autocmd FileType eruby set shiftwidth=2
-    autocmd FileType eruby set expandtab 
+    autocmd FileType eruby set expandtab
     autocmd FileType scala set tabstop=2
     autocmd FileType scala set shiftwidth=2
     autocmd FileType scala set textwidth=79
@@ -249,14 +253,14 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 "map function F7 to toggle vim file explorer
 nnoremap <silent> <F7> :Lex <CR>
 
-"map function F6 to toggle CtrlP to search most recent files 
+"map function F6 to toggle CtrlP to search most recent files
 nnoremap <silent> <F6> :CtrlPMRU <CR>
 
-""" Nerd tree configuration ------------------------------------- 
+""" Nerd tree configuration -------------------------------------
 " silent! nmap <F3> :NERDTreeToggle<CR>
 
 """ YouCompleteMe config ----------------------------------------
-let g:ycm_collect_identifiers_from_tags_files = 1 
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_collect_identifier_from_comments_and_strings=1
 let g:ycm_key_list_previous_completion=['<C-TAB>','<Up>']
@@ -265,7 +269,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_filetype_specific_completion_to_disable={'python' : 1}
 let g:ycm_filetype_whitelist={'python':0, 'scala':0, 'java':0, 'cpp':1, 'html':0}
 let g:ycm_filetype_specific_completion_to_disable={'scala': 1, 'html':1}
-let g:ycm_register_as_syntastic_checker = 0 
+let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_global_ycm_extra_conf="~/.vim/.bundle/YouCompleteMe/.ycm_extra_config.py"
 
 """ Ultisnips setting
@@ -292,8 +296,8 @@ let g:UltiSnipEditSplit="normal"
 "     \ ],
 "     \ 'sort'    : 1,
 " \ }
-" 
-" "" for R 
+"
+" "" for R
 " let g:tagbar_type_r = {
 "     \ 'ctagstype' : 'r',
 "     \ 'kinds'     : [
@@ -304,9 +308,9 @@ let g:UltiSnipEditSplit="normal"
 " \ }
 
 
-""" Syntastic settings-------------------------------------------- 
+""" Syntastic settings--------------------------------------------
 let g:syntastic_aggregate_errors = 1
-"set statusline+=%warningmsg# 
+"set statusline+=%warningmsg#
 "set statusline+=%*
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_always_populate_loc_list = 1
@@ -328,7 +332,7 @@ let g:syntastic_r_lint_styles = 'list(spacing.indentation.notabs, spacing.indent
 
 
 """ CtrlP settings--------------------------------------------
-noremap <C-t> :CtrlPBufTagAll <CR> 
+noremap <C-t> :CtrlPBufTagAll <CR>
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 set wildignore+=*.o,*.obj,*.pyc,*.ipynb,*.sw*,*.zip,*.h5,*.hdf5,*.tar.gz,*/\.git/*,*/tmp/*,*/IlEnv/*,*/SGP/*,*/MagicFarm/*,*/IEnv/*
 let g:ctrlp_clear_cache_on_exit = 0
@@ -342,7 +346,7 @@ if &term =~ '^screen'
 	execute "set <xLeft>=\e[1;*D"
 endif
 
-      
+
 """ allowing tmux to navigate vim splits
 let g:tmux_navigator_no_mappings = 1
 
@@ -369,8 +373,8 @@ let g:pymode_python = 'python3'
 
 """ pymode config
 let g:pymode_rope=0
-let g:pymode_rope_lookup_project=0 
-let g:pymode_motion = 0  
+let g:pymode_rope_lookup_project=0
+let g:pymode_motion = 0
 let g:pymode_rope_complete_on_dot=0
 let g:pymode_rope_completion=0 "0
 let g:pymode_rope_completion_bind='<C-Space>'
@@ -378,14 +382,14 @@ let g:pymode_rope_autoimport=1
 let g:pymode_doc=1
 let g:pymode_indent=1
 let g:pymode_rope_show_doc_bind = 'K'
-let g:pymode_rope_goto_def_newwin = "new" 
+let g:pymode_rope_goto_def_newwin = "new"
 "let g:pymode_doc_key='K'
 let g:pymode_syntax_all = 1
 let g:pymode_rope_goto_definition_bind = '<C-c>g'
 let g:pymode_lint_onfly=0
 let g:pymode_lint_checker=["pyflakes", "pep8"]
 " let g:pymode_lint_sort=['E', 'C', 'I', 'W']
-let g:pymode_syntax_highlight_exceptions = 1 
+let g:pymode_syntax_highlight_exceptions = 1
 " let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 " let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " let g:pymode_lint_ignore="C0110"
@@ -399,7 +403,7 @@ let g:cpp_experimental_template_highlight = 1
 " let vimrplugin_term = "/Applications/iTerm.app/Contents/MacOS/iTerm2"
 " let vimrplugin_applescript = 0
 " let vimrplugin_assign = 0
-" let g:vimrplugin_insert_mode_cmds = 0 
+" let g:vimrplugin_insert_mode_cmds = 0
 
 """ ---jsbeautify-----------
 "map <c-f> :call JsBeautify()<cr>
