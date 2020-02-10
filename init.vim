@@ -8,6 +8,10 @@ filetype off                  " required!
 filetype plugin indent on
 filetype indent on
 
+set background=light
+hi Search ctermfg=black
+
+
 " Use Vim Plug to manage plugins
 call plug#begin('~/.config/nvim/plug')
 
