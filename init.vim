@@ -68,7 +68,7 @@ Plug 'ekalinin/Dockerfile.vim'
 " -----------markdown plugins ----------------------------------
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " ----------scala specific plugins ---------------------------
 Plug 'derekwyatt/vim-scala'
