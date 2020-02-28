@@ -73,7 +73,7 @@ Plug 'spiroid/vim-ultisnip-scala'
 " -----------markdown plugins ----------------------------------
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " ----------formatting specific plugin ------------------------
 Plug 'ntpeters/vim-better-whitespace'
