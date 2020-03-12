@@ -101,7 +101,7 @@ set backspace=indent,eol,start
 if has("mouse")
 	set mouse=a
 endif
-au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+" au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 set shell=bash\ --login
 
@@ -383,13 +383,19 @@ let g:pymode_doc=1
 let g:pymode_indent=1
 let g:pymode_rope_show_doc_bind = 'K'
 let g:pymode_rope_goto_def_newwin = "new"
-"let g:pymode_doc_key='K'
 let g:pymode_syntax_all = 1
 let g:pymode_rope_goto_definition_bind = '<C-c>g'
 let g:pymode_lint_onfly=0
 let g:pymode_lint_checker=["pyflakes", "pep8"]
-" let g:pymode_lint_sort=['E', 'C', 'I', 'W']
 let g:pymode_syntax_highlight_exceptions = 1
+
+""" set color column for text width
+let g:pymode_options_max_line_length = 79
+let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
+let g:pymode_options_colorcolumn = 1
+
+" let g:pymode_doc_key='K'
+" let g:pymode_lint_sort=['E', 'C', 'I', 'W']
 " let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 " let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " let g:pymode_lint_ignore="C0110"
