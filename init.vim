@@ -7,10 +7,8 @@ set nocompatible              " be iMproved
 filetype off                  " required!
 filetype plugin indent on
 filetype indent on
-
 set background=light
 hi Search ctermfg=black
-
 
 " Use Vim Plug to manage plugins
 call plug#begin('~/.config/nvim/plug')
@@ -91,7 +89,6 @@ set nonumber
 set nocompatible
 set clipboard=unnamedplus
 set wrap
-set textwidth=79
 set wrapmargin=0
 set linebreak
 set formatoptions+=t
@@ -100,7 +97,6 @@ set backspace=indent,eol,start
 if has("mouse")
 	set mouse=a
 endif
-au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 set shell=bash\ --login
 
@@ -166,7 +162,6 @@ augroup vimrc_autocmds
     autocmd FileType pyrex set textwidth=79
     autocmd FileType pyrex set wrapmargin=0
     autocmd FileType pyrex set formatoptions+=t
-    autocmd FileType pyrex match Excess /\%80v.*/
     autocmd FileType pyrex set wrap
     autocmd FileType pyrex set expandtab
     autocmd FileType pyrex set completeopt-=preview
@@ -387,17 +382,22 @@ let g:pymode_rope_complete_on_dot=0
 let g:pymode_rope_completion=0 "0
 let g:pymode_rope_completion_bind='<C-Space>'
 let g:pymode_rope_autoimport=1
-" let g:pymode_doc=1
 let g:pymode_indent=1
 let g:pymode_rope_show_doc_bind = 'K'
 let g:pymode_rope_goto_def_newwin = "new"
-"let g:pymode_doc_key='K'
+let g:pymode_lint_onfly=0
+""" set syntax highlight beyond set textwidth
+let g:pymode_options_max_line_length = 79
+let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
+let g:pymode_options_colorcolumn = 1
+
+" let g:pymode_doc=1
+" let g:pymode_doc_key='K'
 " let g:pymode_syntax_all = 1
 " let g:pymode_rope_goto_definition_bind = '<C-c>g'
-let g:pymode_lint_onfly=0
-"let g:pymode_lint_checker=["pyflakes", "pep8"]
+" let g:pymode_lint_checker=["pyflakes", "pep8"]
 " let g:pymode_lint_sort=['E', 'C', 'I', 'W']
-"let g:pymode_syntax_highlight_exceptions = 1
+" let g:pymode_syntax_highlight_exceptions = 1
 " let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 " let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " let g:pymode_lint_ignore="C0110"
