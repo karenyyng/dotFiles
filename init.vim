@@ -89,6 +89,7 @@ set nonumber
 set nocompatible
 set clipboard=unnamedplus
 set wrap
+set textwidth=79
 set wrapmargin=0
 set linebreak
 set formatoptions+=t
@@ -201,6 +202,7 @@ augroup vimrc_autocmds
     autocmd FileType tex set shiftwidth=2
     autocmd FileType markdown set tabstop=2
     autocmd FileType markdown set shiftwidth=2
+    autocmd FileType markdown DisableStripWhitespaceOnSave
     "autocmd FileType markdown set expandtab
     autocmd FileType ruby set tabstop=2
     autocmd FileType ruby set shiftwidth=2
@@ -218,9 +220,11 @@ augroup vimrc_autocmds
     autocmd FileType java set wrapmargin=0
 augroup END
 """ ---- vim-better-whitespace ---------------------------
+let g:better_whitespace_ctermcolor='green'
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
 
 """ -----godown-vim ---------------------------------------
 " :GodownLiveToogle
