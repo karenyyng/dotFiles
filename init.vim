@@ -218,6 +218,12 @@ augroup vimrc_autocmds
     autocmd FileType java set wrapmargin=0
 augroup END
 
+""" ---- vim-better-whitespace ---------------------------
+let g:better_whitespace_ctermcolor='green'
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
 
 """ ------ascii specific setting-----------------------------
 syntax match nonascii "[^\x00-\x7F]" " highlighting ascii
