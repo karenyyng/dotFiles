@@ -8,6 +8,8 @@ filetype off                  " required!
 filetype plugin indent on
 filetype indent on
 set background=light
+
+hi Folded ctermbg=238
 hi Search ctermfg=black
 
 " Use Vim Plug to manage plugins
@@ -47,6 +49,7 @@ Plug 'jpalardy/vim-slime'                            " send code to IPython
 "-------language specific plugins ------------------------------
 "Plug 'maksimr/vim-jsbeautify'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'tmhedberg/SimpylFold'
 
 " Plug 'c.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -115,7 +118,7 @@ let g:SimpylFold_docstring_preview = 1
 
 let g:python3_host_prog='python3'
 "let g:loaded_python_provider = 1 " disable python 2 support
-let g:pymode_folding = 1      " Python
+let g:pymode_folding = 0      " Python
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
 let php_folding=1             " PHP
