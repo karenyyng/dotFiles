@@ -50,6 +50,7 @@ Plug 'jpalardy/vim-slime'                            " send code to IPython
 "Plug 'maksimr/vim-jsbeautify'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'tmhedberg/SimpylFold'
+Plug 'psf/black', { 'branch': 'stable' }
 
 " Plug 'c.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -159,6 +160,7 @@ augroup vimrc_autocmds
     autocmd FileType python set shiftwidth=4
     autocmd FileType python set expandtab
     autocmd FileType python set softtabstop=4
+    autocmd BufWritePre *.py execute ':Black'
     autocmd FileType pyrex set tabstop=4
     autocmd FileType pyrex set shiftwidth=4
     autocmd FileType pyrex set smartindent
