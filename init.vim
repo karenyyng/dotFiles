@@ -51,6 +51,7 @@ Plug 'jpalardy/vim-slime'                            " send code to IPython
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'tmhedberg/SimpylFold'
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
 " Plug 'c.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -117,8 +118,10 @@ let g:SimpylFold_docstring_preview = 1
 "set foldmethod=syntax
 "set foldlevelstart=1
 
-let g:python3_host_prog='python3'
+let g:python3_host_prog='/Users/karenyng/miniconda3/envs/papertile3/bin/python3'
 "let g:loaded_python_provider = 1 " disable python 2 support
+"
+let g:pydocstring_formatter = 'numpy'
 let g:pymode_folding = 0      " Python
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
@@ -131,10 +134,17 @@ let xml_syntax_folding=1      " XML
 
 """ MacVim setting -------------------------------------------
 if has("gui_running")
-  colorscheme SolarizedDark
+  set background=dark
+  colorscheme solarized
 endif
 
-""" ----automatic commands -----------------------------------
+"""--------------------------------------
+" colorscheme monokai
+" let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+
+"""----automatic commands -----------------------------------
 augroup vimrc_autocmds
     autocmd!
     " change tab directory automatically
