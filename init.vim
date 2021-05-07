@@ -121,7 +121,7 @@ let g:SimpylFold_docstring_preview = 1
 let g:python3_host_prog='/Users/karenyng/miniconda3/envs/papertile3/bin/python3'
 "let g:loaded_python_provider = 1 " disable python 2 support
 "
-let g:pydocstring_formatter = 'numpy'
+let g:pydocstring_formatter = 'reST'
 let g:pymode_folding = 0      " Python
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
@@ -393,6 +393,10 @@ let g:tex_conceal= 'adgm'
 """-----python config-------------------------------------------
 let g:pymode_python = 'python3'
 
+"""-----py doq doc string generation config-------------------------------------------
+let g:pydocstring_doq_path='/Users/karenyng/miniconda3/bin/doq'
+let g:pydocstring_formatter = 'numpy'
+
 """ pymode config
 let g:pymode_rope=0
 let g:pymode_rope_lookup_project=0
@@ -457,3 +461,4 @@ let g:EclimCompletionMethod = 'completefunc'
 
 """---------markdown preview settings -------------------------------
 let g:mkdp_auto_start = 1
+let g:mkdp_auto_close = 1
