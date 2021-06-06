@@ -1,7 +1,7 @@
-" Setup for general Linux distributions
+" NeoVim v0.4.4 setup for an Intel machine with MacOSX 11.4
 " Author: Karen Ng <karen.yyng@gmail.com>
 "
-"""-----Vundle config-------------------------------------------
+"""-----general config-------------------------------------------
 set re=1
 set nocompatible              " be iMproved
 filetype off                  " required!
@@ -15,7 +15,9 @@ hi Search ctermfg=black
 " Use Vim Plug to manage plugins
 call plug#begin('~/.config/nvim/plug')
 
-"---------- My bundles (plugins) here:--------------------------
+"---------- My VimPlug plugins are listed below -----------------
+" To install plugins with Vim Plug, update the list of plugins
+" below, reopen neovim, then use `:PlugInstall`
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  " improves startup time
 " Plug 'L9'   				    " for vim programming
 
@@ -30,29 +32,33 @@ Plug 'christoomey/vim-tmux-navigator'
 "Plug 'jpalardy/vim-slime'
 
 " ---------- vim tweaks ----------------------------------------
-"  status line
+" status line
 Plug 'bling/vim-airline'
 
-"------- correct for spellings and grammar stuf ----------------
+"------- correct for spellings and grammar ----------------
 " Plug 'LanguageTool'
 
-"-------language non-specific assistance plugin----------------
+"-------general assistance plugin----------------
 Plug 'SirVer/ultisnips'  			       " quickly add code template
 Plug 'honza/vim-snippets'			       " where code snippets are
-" Plug 'AutoComplPop'                                  " autocomplete menu"
+
+" ---- you complete me requires additional installation steps
+" read the README of youcompleteme for complete installation instructions
 Plug 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
+
+
 Plug 'https://github.com/scrooloose/syntastic.git'   " syntax check
 Plug 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
 Plug 'jpalardy/vim-slime'                            " send code to IPython
-
+Plug 'tmhedberg/SimpylFold'
 
 "-------language specific plugins ------------------------------
-"Plug 'maksimr/vim-jsbeautify'
+" python plugins
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-Plug 'tmhedberg/SimpylFold'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
+"Plug 'maksimr/vim-jsbeautify'
 " Plug 'c.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'jalvesaq/R-Vim-runtime'
@@ -68,6 +74,7 @@ Plug 'ekalinin/Dockerfile.vim'
 
 "Plug 'xmledit'
 "Plug 'tpope/vim-rails.git'
+"
 " -----------markdown plugins ----------------------------------
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/mathjax-support-for-mkdp'
@@ -82,10 +89,9 @@ Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 
-" Git repos on your local machine (i.e. when working on your own plugin)
-filetype plugin indent on     " required!
 
 """-----other general vim config--------------------------------
+filetype plugin indent on     " required!
 syntax enable
 set ruler
 set laststatus=2 showcmd showmode
@@ -106,23 +112,23 @@ endif
 
 set shell=bash\ --login
 
-" have ,cd change to the pwd
+" have ,cd inside vim change to the pwd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
-" ---------vim folding-----------------------------------------
+" ---------vim folding settings-----------------------------------------
 autocmd BufWinLeave *.* mkview
 "autocmd BufWinEnter *.* silent loadview
-"
 "
 let g:SimpylFold_docstring_preview = 1
 "set foldmethod=syntax
 "set foldlevelstart=1
 
+" ----------- Python settings
 let g:python3_host_prog='/Users/karenyng/miniconda3/envs/papertile3/bin/python3'
 "let g:loaded_python_provider = 1 " disable python 2 support
-"
 let g:pydocstring_formatter = 'reST'
 let g:pymode_folding = 0      " Python
+
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
 let php_folding=1             " PHP
@@ -138,7 +144,7 @@ if has("gui_running")
   colorscheme solarized
 endif
 
-"""--------------------------------------
+"""----- themes for neovim -----------------------------------
 " colorscheme monokai
 " let g:solarized_termcolors=256
 set background=dark
@@ -234,7 +240,9 @@ augroup vimrc_autocmds
     autocmd FileType java set textwidth=79
     autocmd FileType java set wrapmargin=0
 augroup END
+
 """ ---- vim-better-whitespace ---------------------------
+" highlight whitespace
 let g:better_whitespace_ctermcolor='green'
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
@@ -267,7 +275,7 @@ let Tlist_r_settings ='r;f:Functions;g:GlobalVariables;v:FunctionVariables'
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
 
-" Open definition in upper split
+" ------- open definition of variables in upper split-----------------
 " " C-w C-]
 " Open definition in a new tab with Ctrl-\
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
@@ -331,7 +339,7 @@ let g:UltiSnipEditSplit="normal"
 " \ }
 
 
-""" Syntastic settings--------------------------------------------
+""" -----Syntastic settings----------------------------------
 let g:syntastic_aggregate_errors = 1
 "set statusline+=%warningmsg#
 "set statusline+=%*
@@ -354,7 +362,7 @@ let g:syntastic_r_checkers = "lint"
 let g:syntastic_r_lint_styles = 'list(spacing.indentation.notabs, spacing.indentation.evenindent)'
 
 
-""" CtrlP settings--------------------------------------------
+""" ----CtrlP settings-------------------------------------
 noremap <C-t> :CtrlPBufTagAll <CR>
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 set wildignore+=*.o,*.obj,*.pyc,*.ipynb,*.sw*,*.zip,*.h5,*.hdf5,*.tar.gz,*/\.git/*,*/tmp/*,*/IlEnv/*,*/SGP/*,*/MagicFarm/*,*/IEnv/*
@@ -393,7 +401,7 @@ let g:tex_conceal= 'adgm'
 """-----python config-------------------------------------------
 let g:pymode_python = 'python3'
 
-"""-----py doq doc string generation config-------------------------------------------
+"""-----py doq doc string generation config---------------------
 let g:pydocstring_doq_path='/Users/karenyng/miniconda3/bin/doq'
 let g:pydocstring_formatter = 'numpy'
 
