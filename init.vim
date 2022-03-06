@@ -289,6 +289,7 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 nnoremap <silent> <F7> :Lex <CR>
 "map function F6 to toggle CtrlP to search most recent files
 nnoremap <silent> <F6> :CtrlPMRU <CR>
+let g:ctrlp_use_caching = 0
 
 """ YouCompleteMe config ----------------------------------------
 let g:ycm_collect_identifiers_from_tags_files = 1
