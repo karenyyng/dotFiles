@@ -18,14 +18,14 @@ call plug#begin('~/.config/nvim/plug')
 "---------- My VimPlug plugins are listed below -----------------
 " To install plugins with Vim Plug, update the list of plugins
 " below, reopen neovim, then use `:PlugInstall`
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  " improves startup time
+" Plug 'rstacruz/sparkup', {'rtp': 'vim/'}  " improves startup time
 " Plug 'L9'   				    " for vim programming
 
 "--------essential tools for vim navigation---------------------
 " Plug 'scrooloose/nerdtree.git'  	" file browser
 Plug 'https://github.com/kien/ctrlp.vim' " file search
-Plug 'Lokaltog/vim-easymotion'        " easier vim search highlight
-Plug 'https://github.com/vim-scripts/taglist.vim.git'
+" Plug 'Lokaltog/vim-easymotion'        " easier vim search highlight
+" Plug 'https://github.com/vim-scripts/taglist.vim.git'
 
 " -------shell multiplexr -------------------------------------
 Plug 'christoomey/vim-tmux-navigator'
@@ -45,22 +45,22 @@ Plug 'honza/vim-snippets'			       " where code snippets are
 " ---- you complete me requires additional installation steps
 " read the README of youcompleteme for complete installation instructions
 Plug 'https://github.com/Valloric/YouCompleteMe.git' " autocomplete used words
-
-
+"
+"
 Plug 'https://github.com/scrooloose/syntastic.git'   " syntax check
 Plug 'https://github.com/jiangmiao/auto-pairs.git'     " autocomplete braces
 Plug 'jpalardy/vim-slime'                            " send code to IPython
 Plug 'tmhedberg/SimpylFold'
-
-"-------language specific plugins ------------------------------
-" python plugins
+"
+" "-------language specific plugins ------------------------------
+" " python plugins
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-Plug 'psf/black', { 'branch': 'stable' }
+" Plug 'psf/black', { 'branch': 'stable' }
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
 "Plug 'maksimr/vim-jsbeautify'
 " Plug 'c.vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'jalvesaq/R-Vim-runtime'
 " Plug 'Vim-R-plugin'
 " Plug 'JuliaLang/julia-vim'
@@ -81,8 +81,8 @@ Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " ----------scala specific plugins ---------------------------
-Plug 'derekwyatt/vim-scala'
-Plug 'spiroid/vim-ultisnip-scala'
+" Plug 'derekwyatt/vim-scala'
+" Plug 'spiroid/vim-ultisnip-scala'
 
 " ----------formatting specific plugin ------------------------
 Plug 'ntpeters/vim-better-whitespace'
@@ -124,7 +124,7 @@ let g:SimpylFold_docstring_preview = 1
 "set foldlevelstart=1
 
 " ----------- Python settings
-let g:python3_host_prog='/Users/karenyng/miniconda3/envs/papertile3/bin/python3'
+let g:python3_host_prog='/Users/karenyng/miniconda3/envs/nvim/bin/python3'
 "let g:loaded_python_provider = 1 " disable python 2 support
 let g:pydocstring_formatter = 'reST'
 let g:pymode_folding = 0      " Python
@@ -170,7 +170,7 @@ augroup vimrc_autocmds
     " autocmd FileType python set formatoptions+=t
     " autocmd FileType python match Excess /\%80v.*/
     " autocmd FileType python set wrap
-    " autocmd FileType python set completeopt-=preview
+    " autocmd FileType python set completeopt+=preview
     autocmd FileType python set tabstop=4
     autocmd FileType python set nonumber
     autocmd FileType python set shiftwidth=4
@@ -292,17 +292,24 @@ nnoremap <silent> <F6> :CtrlPMRU <CR>
 let g:ctrlp_use_caching = 0
 
 """ YouCompleteMe config ----------------------------------------
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax=1
+map <silent> <C-d> :YcmCompleter GetDoc<CR>
+" let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
+let g:ycm_keep_logfiles = 1
+" Enable debugging
+let g:ycm_log_level = 'debug'
+"let g:ycm_server_python_interpreter='/Users/karenyng/miniconda3/envs/nvim/bin/python3'
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_seed_identifiers_with_syntax=1
+set completeopt+=preview
 let g:ycm_collect_identifier_from_comments_and_strings=1
 let g:ycm_key_list_previous_completion=['<C-TAB>','<Up>']
 let g:ycm_key_list_selection_completion=['<C-TAB>', '<Down>']
 let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_filetype_specific_completion_to_disable={'python' : 1}
 let g:ycm_filetype_whitelist={'python':0, 'scala':0, 'java':0, 'cpp':1, 'html':0}
 let g:ycm_filetype_specific_completion_to_disable={'scala': 1, 'html':1}
 let g:ycm_register_as_syntastic_checker = 0
-let g:ycm_global_ycm_extra_conf="~/.vim/.bundle/YouCompleteMe/.ycm_extra_config.py"
+let g:ycm_global_ycm_extra_conf="~/.config/nvim/plug/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py"
+let g:ycm_confirm_extra_conf=0
 
 """ Ultisnips setting
 let g:UltiSnipSnippetsDir="~/.vim/bundle/vim-snippets/UltiSnips"
