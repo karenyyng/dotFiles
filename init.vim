@@ -142,6 +142,7 @@ let xml_syntax_folding=1      " XML
 if has("gui_running")
   set background=dark
   colorscheme solarized
+  set guifont=Menlo\ Regular:h15
 endif
 
 """----- themes for neovim -----------------------------------
